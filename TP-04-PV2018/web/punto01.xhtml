@@ -5,7 +5,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>TP N°4 Ejercicio 1</title>
+        <title>TP N° 1 Ejercicio 1</title>
     </h:head>
     <h:body>
         <p:panel id ="pnlTemperatura" header ="TP N°4 Ejercicio 1"
@@ -17,7 +17,7 @@
                                    value="#{temperaturaFormBean.temperaturaSistema.temperatura}"/>                 
                     <h:outputText value="Tipo de Temperatura:" />
                     <p:selectOneButton value="#{temperaturaFormBean.temperaturaSistema.tipoTemperatura}">
-                            <f:selectItem itemLabel="Grado Fahrenheit" itemValue="Grado Fahrenheit" />
+                        <f:selectItem itemLabel="Grado Fahrenheit" itemValue="Grado Fahrenheit" />
                             <f:selectItem itemLabel="Celsius" itemValue="Celsius" />
                             <f:selectItem itemLabel="Kelvin" itemValue="Kelvin" />
                         </p:selectOneButton>
@@ -38,6 +38,7 @@
                 </h:panelGrid>
             </h:form>
         </p:panel>
+    
     </h:body>
 </html>
 
