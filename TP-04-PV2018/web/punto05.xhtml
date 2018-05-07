@@ -1,12 +1,60 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <p:panel id ="pnlNumero" header ="TP N°4 Ejercicio 5 - Profesor" style ="width: 750px;"> 
+            <h:form>
+                <h:panelGrid id ="tblCarga" columns="2" >
+                    
+                    <p:outputLabel id="lblIngreDni" value ="Ingrese DNI  "/>
+                    <p:inputNumber id="txtdni" value="#{profesorBeans.profesor.DNI}"/> 
+                    <p:outputLabel id="lblIngresenombre" value ="Ingrese nombre  "/>
+                    <p:inputText id="txtnombre" value="#{profesorBeans.profesor.nombre}"/>
+                    <p:outputLabel id="lblIngreMateria" value ="Ingrese Materia  "/>
+                    <p:inputText id="txtmateria" value="#{profesorBeans.profesor.materia}"/>
+                    <p:commandButton value ="Cargar" actionListener="#{profesorBeans.cargarLista()}" 
+                                     update="tblMuestra"/><br></br>  
+                
+                </h:panelGrid>
+                <h:panelGrid id ="tblMuestra" >
+                    <p:dataTable id="dtNumero" value="#{profesorBeans.lista}" var="prof" 
+                                 style="width: 600px;" editable="true">  
+                        <p:column headerText="Dni">
+                            <p:outputLabel value="#{prof.DNI}"/>
+                        </p:column>
+                        <p:column headerText="Nombre">
+                            <p:outputLabel value="#{prof.nombre}"/>
+                        </p:column>
+                        <p:column headerText="Materia">
+                            <p:outputLabel value="#{prof.materia}"/>
+                        </p:column>
+                        <p:column>
+                            <p:commandButton  oncomplete="PF('dlg2').show();" 
+                                             update="lbldni,lblnombre,lblmateria" 
+                                             value ="Mostrar"  actionListener="#{profesorBeans.seleccionarProfesor(prof)}"/>
+                               
+                        </p:column>
+                    </p:dataTable> 
+                </h:panelGrid>  
+                
+            </h:form>
+        </p:panel>
+        <p:dialog id ="Mensaje" header="Informacion del Profesor" widgetVar="dlg2" modal="true" 
+                  height="200" closeOnEscape="true" >
+            <p:panelGrid id ="mostrarmensajeProfesor">
+                <p:outputLabel value ="DNI:"/>
+                <p:outputLabel id="lbldni" value="#{profesorBeans.profesorSeleccionado.DNI}"/><br></br>
+                <p:outputLabel value ="NOMBRE:"/>
+                <p:outputLabel id="lblnombre" value="#{profesorBeans.profesorSeleccionado.nombre}"/><br></br>
+                <p:outputLabel value ="MATERIA:"/>
+                <p:outputLabel id="lblmateria" value="#{profesorBeans.profesorSeleccionado.materia}"/><br></br>
+                
+            </p:panelGrid>
+        </p:dialog>
     </h:body>
 </html>
-
