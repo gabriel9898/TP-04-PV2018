@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <p:panel id ="pnlNumero" header ="TP N°4 Ejercicio 4 - Juego del Ahorcado" style ="width: 750px;"> 
+            <h:form>
+                <h:panelGrid id ="tblCarga" columns="3">
+                    <p:outputLabel id="lblIngreseCadena" value ="Ingrese una Palabra  "/>
+                    <p:inputText id="txtCadena" value="#{ahorcadoFormBean.cadena}" />  
+                    <p:commandButton value ="Jugar"  update = "lblMostrarCadena,txtCadena,txtEstado,txtintento,txtCaracter"
+                                     actionListener="#{ahorcadoFormBean.agregarLista()}" 
+                                     /><br></br>  
+                    <p:outputLabel id="lblMostrarCadena" value ="#{ahorcadoFormBean.mostrarCadena()}"/>
+                    <br></br>  
+                    <p:outputLabel id="lblIngreseCaracter" value ="Ingrese un Caracter"/>
+                    <p:inputText id="txtCaracter" value="#{ahorcadoFormBean.caracter}" maxlength="1"/>
+                    <p:commandButton value ="Probar"  update = "lblMostrarCadena,txtintento,txtEstado"
+                                     actionListener="#{ahorcadoFormBean.verificacionCaracter()}"/>
+                    <p:outputLabel id="lblintento" value ="Numero de intentos:"/>
+                    <p:outputLabel id="txtintento" value="#{ahorcadoFormBean.numintento}" />
+                    <br></br> 
+                    <p:outputLabel id="lblEstado" value ="Estado:"/>
+                    <p:outputLabel id="txtEstado" value="#{ahorcadoFormBean.mostrarEstado()}" /><br></br> 
+                    <br></br> 
+                </h:panelGrid>                    
+            </h:form>
+        </p:panel>
+    </h:body>
+</html>
+
