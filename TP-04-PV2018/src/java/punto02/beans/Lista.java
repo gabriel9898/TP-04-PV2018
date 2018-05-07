@@ -1,19 +1,23 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package punto02.beans;
 
-import punto02.dominio.Numero;
 import java.io.Serializable;
 import java.util.ArrayList;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import punto02.dominio.Numero;
 
 /**
  *
- * @author Sofia Soto
+ * @author Windows 10
  */
 @ManagedBean
 @RequestScoped
-public class Lista implements Serializable{
+    public class Lista implements Serializable{
     private static ArrayList<Numero> lista= new ArrayList<Numero>(){};
     private Numero numero;
     private int num1;
@@ -38,7 +42,7 @@ public class Lista implements Serializable{
     }
 
     public void setLista(ArrayList<Numero> lista) {
-        Lista.lista = lista;
+        punto02.beans.Lista.lista = lista;
     }
 
     public Numero getNumero() {
@@ -100,4 +104,6 @@ public class Lista implements Serializable{
         }
     return suma/div;
     }
-}
+    }
+    
+
